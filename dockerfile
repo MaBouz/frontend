@@ -4,4 +4,4 @@ COPY . .
 RUN npm install --no-package-lock
 RUN npm run build --prod
 FROM nginx:alpine
-COPY --from=node /usr/src/app/dist/frontend /usr/share/nginx/html
+COPY --from=node /app/dist/frontend /usr/share/nginx/html
