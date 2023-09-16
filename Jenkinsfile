@@ -16,6 +16,7 @@ pipeline {
         }
         stage ("Generate Docker image") {
             steps {
+                sh "cd frontend"
                 sh "docker build -f dockerfile -t malbouz/angularapp:1.1.${env.BUILD_NUMBER} ."
             }
         }
