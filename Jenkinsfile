@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     tools {
-        nodejs '14.15.4'
+        nodejs 'nodejs'
     }
     stages {
         stage ("Clean") {
