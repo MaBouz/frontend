@@ -1,0 +1,25 @@
+<form >
+  <div>
+  <label >ID Produit</label>
+  <input type="text" [(ngModel)]= "newEtudiant.idEtudiant"
+  name="idEtudiant">
+  </div>
+  <div>
+  <label >Nom Produit</label>
+  <input type="text" [(ngModel)]= "newEtudiant.nomEtudiant"
+  name="nomEtudiant">
+  </div>
+  <div>
+  <label >Prix Produit</label>
+  <input type="text" [(ngModel)]= "newEtudiant.prenomEtudiant"
+  name="prenomEtudiant">
+  </div>
+  <div>
+  <label >Date création</label>
+  <input type="date" [(ngModel)]= "newEtudiant.dateNais"
+  name="dateNais">
+  </div>
+  <div>
+  <button type="submit" (click)="addEtudiant()">Ajouter</button>
+  </div>
+  </form>
