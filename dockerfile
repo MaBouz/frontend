@@ -1,7 +1,7 @@
 FROM node:14.15.4 as node
 WORKDIR /app
-COPY . .
 RUN npm install --no-package-lock
+COPY . .
 RUN npm run build
 FROM nginx:alpine
-COPY --from=node /var/lib/jenkins/workspace/fontend1/frontend/dist /usr/share/nginx/html
+COPY --from=node /app/dist /usr/share/nginx/html
