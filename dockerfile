@@ -4,4 +4,4 @@ COPY . .
 RUN npm install --no-package-lock
 RUN npm run build
 FROM nginx:alpine
-COPY --from=node /var/lib/jenkins/workspace/fontend1/frontend/dist/frontend /usr/share/nginx/html
+COPY --from=node /var/lib/jenkins/workspace/fontend1/frontend/dist /usr/share/nginx/html
