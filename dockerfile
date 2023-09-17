@@ -5,4 +5,4 @@ RUN npm install --no-package-lock
 COPY . .
 RUN npm run build --force
 FROM nginx:alpine
-COPY --from=builder /app/dist/frontend /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
