@@ -30,6 +30,7 @@ pipeline {
         stage ("backend image") {
             steps {
                 dir ("backend"){
+                    sh "mvn clean install -DskipTests=true"
                     sh "docker build -f dockerfile -t malbouz/backend:1.1.0 ."        
                 }
             }
