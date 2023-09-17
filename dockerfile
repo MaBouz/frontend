@@ -3,6 +3,6 @@ WORKDIR /app
 RUN npm install @angular/cli
 RUN npm install --no-package-lock
 COPY . .
-RUN npm run build
+RUN npm run build --force
 FROM nginx:alpine
 COPY --from=node /app/dist /usr/share/nginx/html
