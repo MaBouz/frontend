@@ -1,6 +1,6 @@
 FROM node:14.15.4 as builder
 WORKDIR /app
-COPY package*.json
+COPY package*.json ./
 RUN npm install @angular/cli
 RUN npm install --no-package-lock
 COPY . .
