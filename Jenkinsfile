@@ -16,16 +16,28 @@ pipeline {
         }
         stage ("Generate Docker image") {
             steps {
-                sh "pwd"
                 dir ("frontend"){
-                    sh "pwd"
                     sh "docker build -f dockerfile -t malbouz/angularapp:1.1.${env.BUILD_NUMBER} ."        
                 }
             }
         }
-        stage ("push Docker image") {
+        stage ("pclone backend repo") {
             steps {
-                sh "docker push  malbouz/angularapp:1.1.${env.BUILD_NUMBER}"
+                sh "git clone https://github.com/MaBouz/backend.git"
+            }
+        }
+        stage ("backend image") {
+            steps {
+                dir ("backend"){
+                    sh "docker build -f dockerfile -t malbouz/backend:1.1.0 ."        
+                }
+            }
+        }
+        stage ("execute docker compose") {
+            steps {
+                dir ("backend"){
+                    sh "sudo docker compose up -d"        
+                }
             }
         }
     }
